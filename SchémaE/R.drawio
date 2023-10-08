@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-08T16:34:30.229Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="Yvp5wubJDPeE_yQMOgza" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-08T21:42:20.051Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="fTb8r_681fyL7OqTASVQ" version="22.0.4" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="795" dy="539" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1972" dy="761" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -161,7 +161,7 @@
         <mxCell id="C-vyLk0tnHw3VtMMgP7b-24" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" parent="C-vyLk0tnHw3VtMMgP7b-23" vertex="1">
           <mxGeometry y="30" width="250" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="C-vyLk0tnHw3VtMMgP7b-25" value="PK" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;" parent="C-vyLk0tnHw3VtMMgP7b-24" vertex="1">
+        <mxCell id="C-vyLk0tnHw3VtMMgP7b-25" value="CP" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;" parent="C-vyLk0tnHw3VtMMgP7b-24" vertex="1">
           <mxGeometry width="30" height="30" as="geometry">
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -441,6 +441,9 @@
         </mxCell>
         <mxCell id="a953mOE0ZV8A7fk9-oR8-34" value="EstMembreDe" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="850" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a953mOE0ZV8A7fk9-oR8-37" value="&lt;u&gt;Contraintes d&#39;intégrités :&lt;/u&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;ul&gt;&lt;li&gt;Clé Primaire : CP&lt;br&gt;&lt;/li&gt;&lt;li&gt;Clé Étrangère : CE&lt;br&gt;&lt;/li&gt;&lt;li&gt;NOT NULL : NN&lt;br&gt;&lt;/li&gt;&lt;li&gt;UNIQUE : UN&lt;br&gt;&lt;/li&gt;&lt;li&gt;CHECK : CH&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-230" y="10" width="200" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
