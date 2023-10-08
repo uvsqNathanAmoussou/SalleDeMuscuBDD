@@ -10,7 +10,7 @@
 2. **Membre**
    - ID_Membre (Primary Key)
    - Nom
-   - Prénom
+   - Prenom
    - DateNaissance
    - Adresse
    - DateInscription
@@ -34,7 +34,7 @@
    - Nom
    - Type (par exemple : yoga, spinning, etc.)
    - Date
-   - Durée
+   - Duree
 
 6. **Entraineur**
    - ID_Entraineur (Primary Key)
