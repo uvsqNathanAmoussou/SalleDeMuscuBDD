@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-09T14:35:22.867Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="vY0Zjqz6Uag-0k5x9Vs8" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-12T08:30:57.704Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="QruVnagEBX9gj7e0TSiU" version="22.0.4" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1115" dy="180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1972" dy="761" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -456,6 +456,9 @@
         </mxCell>
         <mxCell id="a953mOE0ZV8A7fk9-oR8-37" value="&lt;u&gt;Contraintes d&#39;intégrités :&lt;/u&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;ul&gt;&lt;li&gt;Clé Primaire : CP&lt;br&gt;&lt;/li&gt;&lt;li&gt;Clé Étrangère : CE&lt;br&gt;&lt;/li&gt;&lt;li&gt;NOT NULL : NN&lt;br&gt;&lt;/li&gt;&lt;li&gt;UNIQUE : UN&lt;br&gt;&lt;/li&gt;&lt;li&gt;CHECK : CH&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="-230" y="10" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="zmr2La2uD8AsF83B7Kmm-1" value="Rajouter les roles" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=111;" vertex="1" parent="1">
+          <mxGeometry x="-565" y="220" width="890" height="150" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
