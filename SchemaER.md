@@ -88,15 +88,15 @@
    - Prénom : NOT NULL
    - DateNaissance : NOT NULL, CHECK (DateNaissance <= Date actuelle)
    - Adresse : NOT NULL
-   - DateInscription : NOT NULL, CHECK (DateInscription <= Date actuelle)
-   - DateResiliation: DEFAULT NULL, CHECK (DateResiliation > DateInscription)
+   - DateInscription : NOT NULL, CHECK (DateInscription = DateDebut)
+   - DateResiliation: DEFAULT NULL, CHECK (DateResiliation = DateFin)
 
 3. **Abonnement** :
    - ID_Abonnement : NOT NULL, PRIMARY KEY
    - Type : NOT NULL
    - Prix : NOT NULL, CHECK (Prix >= 0)
-   - DateDebut : NOT NULL, CHECK (DateDebut <= Date actuelle)
-   - DateFin : DEFAULT NULL, CHECK (DateFin >= DateDebut)
+   - DateDebut : NOT NULL, CHECK (DateDebut = DateInscription)
+   - DateFin : DEFAULT NULL, CHECK (DateFin = DateResiliation)
 
 4. **Equipement** :
    - ID_Equipement : NOT NULL, PRIMARY KEY
