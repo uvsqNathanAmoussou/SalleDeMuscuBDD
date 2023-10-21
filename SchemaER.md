@@ -6,14 +6,18 @@
    - Adresse
    - DateOuverture
    - SurfaceTotale
+   - HoraireOuverture
+   - HoraireFermeture
 
 2. **Membre**
    - ID_Membre (Primary Key)
+   - ID_Abonnement (Foreign Key)
    - Nom
    - Prenom
    - DateNaissance
    - Adresse
    - DateInscription
+   - DateResiliation
 
 3. **Abonnement**
    - ID_Abonnement (Primary Key)
@@ -34,7 +38,8 @@
    - Nom
    - Type (par exemple : yoga, spinning, etc.)
    - Date
-   - Duree
+   - HoraireDebut
+   - HoraireFin
 
 6. **Entraineur**
    - ID_Entraineur (Primary Key)
@@ -73,21 +78,25 @@
    - Adresse : NOT NULL, UNIQUE
    - DateOuverture : NOT NULL, CHECK (DateOuverture <= Date actuelle)
    - SurfaceTotale : NOT NULL, CHECK (SurfaceTotale > 0)
+   - HoraireOuverture:  NOT NULL, CHECK (HoraireOuverture < HoraireFermeture)
+   - HoraireFermeture: NOT NULL, CHECK (HoraireFermeture > HoraireOuverture)
 
 2. **Membre** :
    - ID_Membre : NOT NULL, PRIMARY KEY
+   - ID_Abonnement: NOT NULL, FOREIGN KEY
    - Nom : NOT NULL
    - Prénom : NOT NULL
    - DateNaissance : NOT NULL, CHECK (DateNaissance <= Date actuelle)
    - Adresse : NOT NULL
    - DateInscription : NOT NULL, CHECK (DateInscription <= Date actuelle)
+   - DateResiliation: DEFAULT NULL, CHECK (DateResiliation > DateInscription)
 
 3. **Abonnement** :
    - ID_Abonnement : NOT NULL, PRIMARY KEY
    - Type : NOT NULL
    - Prix : NOT NULL, CHECK (Prix >= 0)
    - DateDebut : NOT NULL, CHECK (DateDebut <= Date actuelle)
-   - DateFin : NOT NULL, CHECK (DateFin >= DateDebut)
+   - DateFin : DEFAULT NULL, CHECK (DateFin >= DateDebut)
 
 4. **Equipement** :
    - ID_Equipement : NOT NULL, PRIMARY KEY
@@ -101,7 +110,8 @@
    - Nom : NOT NULL
    - Type : NOT NULL
    - Date : NOT NULL, CHECK (Date >= Date actuelle)
-   - Durée : NOT NULL, CHECK (Durée > 0)
+   - HoraireDebut: NOT NULL, CHECK (HoraireDebut < HoraireFin)
+   - HoraireFin: NOT NULL, CHECK (HoraireFin > HoraireDebut)
 
 6. **Entraineur** :
    - ID_Entraineur : NOT NULL, PRIMARY KEY
