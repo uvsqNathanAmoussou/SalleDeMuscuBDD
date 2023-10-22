@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-22T15:50:54.446Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="TyKTTNooZtSz8i3IYKd9" version="22.0.6" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-22T15:52:15.470Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15" etag="n2wnMjN0qdpG_0NGP1YI" version="22.0.6" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="2935" dy="1176" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2120" dy="1438" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -493,10 +493,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="a953mOE0ZV8A7fk9-oR8-37" value="&lt;u&gt;Contraintes d&#39;intégrités :&lt;/u&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;ul&gt;&lt;li&gt;Clé Primaire : CP&lt;br&gt;&lt;/li&gt;&lt;li&gt;Clé Étrangère : CE&lt;br&gt;&lt;/li&gt;&lt;li&gt;NOT NULL : NN&lt;br&gt;&lt;/li&gt;&lt;li&gt;UNIQUE : UN&lt;br&gt;&lt;/li&gt;&lt;li&gt;CHECK : CK&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="-230" y="10" width="200" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="zmr2La2uD8AsF83B7Kmm-1" value="Rajouter les roles" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=111;" parent="1" vertex="1">
-          <mxGeometry x="-973" y="224" width="890" height="150" as="geometry" />
+          <mxGeometry y="840" width="200" height="160" as="geometry" />
         </mxCell>
         <mxCell id="BvF8xhe03MmfcxocBLk4-78" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="BvF8xhe03MmfcxocBLk4-55" target="BvF8xhe03MmfcxocBLk4-22">
           <mxGeometry relative="1" as="geometry" />
@@ -620,6 +617,9 @@
         </mxCell>
         <mxCell id="BvF8xhe03MmfcxocBLk4-102" value="CE | ID_Cours" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="650" y="440" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF8xhe03MmfcxocBLk4-106" value="&lt;div style=&quot;&quot;&gt;&lt;u&gt;À faire :&lt;/u&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;Ajouter les rôles&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="280" y="840" width="180" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
