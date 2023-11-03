@@ -35,6 +35,7 @@
 
 5. **Cours**
    - ID_Cours (Primary Key)
+   - ID_Salle (Foreign Key)
    - Nom
    - Type (par exemple : yoga, spinning, etc.)
    - Date
@@ -107,6 +108,7 @@
 
 5. **Cours** :
    - ID_Cours : NOT NULL, PRIMARY KEY
+   - ID_Salle : NOT NULL, FOREIGN KEY
    - Nom : NOT NULL
    - Type : NOT NULL
    - Date : NOT NULL, CHECK (Date >= Date actuelle)
