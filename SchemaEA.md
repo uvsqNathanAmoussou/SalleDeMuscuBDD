@@ -5,7 +5,7 @@
 2. Membre(ID_Membre, ID_Abonnement, Nom, Prenom, DateNaissance, Adresse, DateInscription, DateResiliation)
 3. Abonnement(ID_Abonnement, Type, Prix, DateDebut, DateFin)
 4. Equipement(ID_Equipement, Nom, Type, DateAchat, Prix)
-5. Cours(ID_Cours, Nom, Type, Date, HoraireDebut, HoraireFin)
+5. Cours(ID_Cours, ID_Salle, Nom, Type, Date, HoraireDebut, HoraireFin)
 6. Entraineur(ID_Entraineur, Nom, Prénom, Spécialité, DateEmbauche)
 ```
 
@@ -57,6 +57,7 @@
 
 5. Cours :
    - ID_Cours : NOT NULL PRIMARY KEY
+   - ID_Salle : NOT NULL FOREIGN KEY
    - Nom : NOT NULL
    - Type : NOT NULL
    - Date : NOT NULL CHECK (Date >= Date actuelle)
