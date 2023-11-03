@@ -17,6 +17,7 @@
 3. EstEquipéDe(SalleMusculation:ID_Salle N -- N Equipement:ID_Equipement)
 4. Donne(Entraineur:ID_Entraineur 1 -- N Cours:ID_Cours)
 5. Participe(Membre:ID_Membre N -- N Cours:ID_Cours)
+6. SeTientDans(Cours:ID_Cours N -- 1 SalleMusculation:ID_Salle)
 ```
 
 **Contraintes d'intégrité :**
