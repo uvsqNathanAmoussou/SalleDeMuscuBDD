@@ -7,6 +7,7 @@
 4. Equipement(ID_Equipement, Nom, Type, DateAchat, Prix)
 5. Cours(ID_Cours, ID_Salle, Nom, Type, Date, HoraireDebut, HoraireFin)
 6. Entraineur(ID_Entraineur, Nom, Prénom, Spécialité, DateEmbauche)
+7. MoyenPaiement(ID_Paiement, Type, Détails, ID_Membre, DateAjout)
 ```
 
 **Relations :**
@@ -18,6 +19,8 @@
 4. Donne(Entraineur:ID_Entraineur 1 -- N Cours:ID_Cours)
 5. Participe(Membre:ID_Membre N -- N Cours:ID_Cours)
 6. SeTientDans(Cours:ID_Cours N -- 1 SalleMusculation:ID_Salle)
+7. Utilise(Membre:ID_Membre 1 -- N MoyenPaiement:ID_Paiement)
+8. PaiementPour(MoyenPaiement:ID_Paiement 1 -- N Abonnement:ID_Abonnement)
 ```
 
 **Contraintes d'intégrité :**
@@ -71,4 +74,12 @@
    - Prénom : NOT NULL
    - Spécialité : NOT NULL
    - DateEmbauche : NOT NULL CHECK (DateEmbauche <= Date actuelle)
+
+7. MoyenPaiement :
+   - ID_Paiement : NOT NULL, PRIMARY KEY
+   - Type : NOT NULL
+   - Détails : dépendra du type, certaines informations sont sensibles et doivent être traitées avec soin
+   - ID_Membre : NOT NULL, FOREIGN KEY
+   - DateAjout : NOT NULL, CHECK (DateAjout <= Date actuelle)
+
 ```
