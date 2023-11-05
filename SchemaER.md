@@ -49,6 +49,13 @@
    - Spécialité
    - DateEmbauche
 
+7. **MoyenPaiement**
+   - ID_Paiement (Primary Key)
+   - Type (par exemple : carte de crédit, PayPal, virement, etc.)
+   - Détails (en fonction du type, cela pourrait inclure le numéro de carte, la date d'expiration, etc.)
+   - ID_Membre (Foreign Key)
+   - DateAjout (du moyen de paiement)
+
 ### Relations :
 
 1. **EstMembreDe** : entre **Membre** et **SalleMusculation**
@@ -70,6 +77,16 @@
 5. **Participe** : entre **Membre** et **Cours**
    - ID_Membre (Foreign Key)
    - ID_Cours (Foreign Key)
+
+6. **Utilise** : entre **Membre** et **MoyenPaiement**
+   - ID_Membre (Foreign Key)
+   - ID_Paiement (Foreign Key)
+  
+7. **PaiementPour** : entre **MoyenPaiement** et **Abonnement**
+   - ID_Paiement (Foreign Key)
+   - ID_Abonnement (Foreign Key)
+   - DatePaiement
+   - Montant
 
 ### Contraintes d'intégrité :
 
@@ -121,3 +138,10 @@
    - Prénom : NOT NULL
    - Spécialité : NOT NULL
    - DateEmbauche : NOT NULL, CHECK (DateEmbauche <= Date actuelle)
+
+7. **MoyenPaiement** :
+   - ID_Paiement : NOT NULL, PRIMARY KEY
+   - Type : NOT NULL
+   - Détails : dépendra du type, certaines informations sont sensibles et doivent être traitées avec soin
+   - ID_Membre : NOT NULL, FOREIGN KEY
+   - DateAjout : NOT NULL, CHECK (DateAjout <= Date actuelle)
