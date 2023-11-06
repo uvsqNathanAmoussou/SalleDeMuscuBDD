@@ -1,7 +1,4 @@
-2. Modèle Entitée-Relation
-
-Schéma E/R :
-  
+2. Modèle Entitée-Association
 
 Entités et leurs attributs :
   1. Chaque salle de musculation a un identifiant unique, un nom, une adresse, une date d'ouverture, une superficie totale, ainsi que des horaires d'ouverture et de fermeture.
@@ -31,4 +28,8 @@ Contraintes d'intégrité :
   6. Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
   7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.
 
+Schéma :
+  
+
 3. Modèle relationnel
+  Inclure schéma
