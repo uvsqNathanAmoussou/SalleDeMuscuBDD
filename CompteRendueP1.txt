@@ -1,0 +1,34 @@
+2. Modèle Entitée-Relation
+
+Schéma E/R :
+  
+
+Entités et leurs attributs :
+  1. Chaque salle de musculation a un identifiant unique, un nom, une adresse, une date d'ouverture, une superficie totale, ainsi que des horaires d'ouverture et de fermeture.
+  2. Chaque membre est identifié par un numéro unique, est lié à un abonnement, et a un nom, un prénom, une date de naissance, une adresse, une date d'inscription et éventuellement une date de résiliation.
+  3. Chaque abonnement a un identifiant unique, un type, un prix, une date de début et potentiellement une date de fin.
+  4. Chaque équipement est identifié par un numéro unique, a un nom, un type, une date d'achat et un prix.
+  5. Chaque cours a un identifiant unique, est associé à une salle, a un nom, un type, une date, une heure de début et de fin.
+  6. Chaque entraîneur a un identifiant unique, un nom, un prénom, une spécialité, et une date d'embauche.
+  7. Chaque moyen de paiement a un identifiant unique, un type, des détails qui varient en fonction du type, est lié à un membre, et a une date d'ajout.
+
+Relations :
+  1. Les membres peuvent s'inscrire dans plusieurs salles de musculation, et chaque salle peut avoir de nombreux membres.
+  2. Un membre est lié à un seul abonnement, mais un abonnement peut concerner plusieurs membres.
+  3. Les salles de musculation sont équipées de plusieurs équipements et un équipement peut se trouver dans plusieurs salles.
+  4. Un entraîneur peut donner plusieurs cours, mais un cours est enseigné par un seul entraîneur.
+  5. Les membres peuvent participer à plusieurs cours, et chaque cours peut accueillir de nombreux membres.
+  6. Un cours se déroule dans une seule salle de musculation, bien que cette salle puisse accueillir plusieurs cours.
+  7. Un membre peut utiliser plusieurs moyens de paiement, mais un moyen de paiement est associé à un seul membre.
+  8. Un moyen de paiement peut être utilisé pour plusieurs abonnements, mais un abonnement est payé par un seul moyen de paiement.
+
+Contraintes d'intégrité :
+  1. Les salles de musculation doivent avoir une adresse unique et ne peuvent pas être ouvertes dans le futur. Leur superficie doit être positive et les horaires d'ouverture doivent précéder ceux de fermeture.
+  2. Les membres doivent être inscrits à partir d'aujourd'hui ou dans le passé, et leur date de naissance doit également être dans le passé. L'inscription à un abonnement doit correspondre à la date de début de cet abonnement, et la résiliation à la date de fin.
+  3. Les abonnements doivent avoir un prix positif ou nul et les dates de début et de fin doivent correspondre respectivement à l'inscription et la résiliation du membre associé.
+  4. L'achat d'équipement doit être fait dans le passé et le prix doit être positif ou nul.
+  5. Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
+  6. Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
+  7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.
+
+3. Modèle relationnel
