@@ -32,4 +32,53 @@ Schéma :
   
 
 3. Modèle relationnel
-  Inclure schéma
+
+Entités et leurs attributs :
+  1. Salle de Musculation : Chaque salle de musculation possède un numéro d'identification unique, un nom, une adresse spécifique, une date à laquelle elle a commencé à opérer, une mesure de l'espace disponible pour l'entraînement, et les heures à lesquelles elle ouvre et ferme chaque jour.
+  2. Membre : Chaque personne qui s'inscrit à la salle de musculation reçoit un numéro d'identification unique, est rattachée à un abonnement spécifique, et doit fournir son nom, son prénom, sa date de naissance, son adresse personnelle, la date à laquelle elle s'est inscrite, et éventuellement la date à laquelle elle a mis fin à son abonnement.
+  3. Abonnement : Les abonnements sont caractérisés par un numéro d'identification unique, un type qui décrit la durée de l'abonnement (comme mensuel ou annuel), un prix, une date de début de validité, et une date de fin éventuelle.
+  4. Équipement : Chaque pièce d'équipement dans la salle de musculation a un numéro d'identification unique, un nom, une catégorie décrivant son usage (comme cardio ou musculation), une date d'acquisition, et un prix.
+  5. Cours : Les cours offerts par la salle de musculation sont identifiés par un numéro unique, sont liés à une salle spécifique, et ont un nom, un type décrivant l'activité (comme le yoga ou le spinning), une date prévue, et des heures de début et de fin.
+  6. Entraîneur : Chaque entraîneur a un numéro d'identification unique, un nom, un prénom, une spécialité dans un domaine particulier de l'entraînement, et une date à laquelle il ou elle a commencé à travailler dans la salle.
+  7. Moyen de Paiement : Les moyens de paiement sont identifiés par un numéro unique et sont caractérisés par un type (comme carte de crédit ou PayPal), des détails spécifiques qui varient en fonction du type de paiement, sont associés à un membre, et ont une date d'ajout indiquant quand ils ont été mis en place pour le membre.
+
+Relations :
+  1. EstMembreDe : Cette relation indique quel membre est inscrit dans quelle salle de musculation.
+  2. Possède : Cela montre quel membre détient quel abonnement.
+  3. EstÉquipéDe : Cette relation répertorie quels équipements sont présents dans quelle salle de musculation.
+  4. Donne : Elle indique quel entraîneur donne quels cours.
+  5. Participe : Cette relation révèle quels membres participent à quels cours.
+  6. Utilise : Elle montre quels moyens de paiement sont utilisés par quels membres.
+  7. PaiementPour : Cela indique quel moyen de paiement a été utilisé pour payer quel abonnement, incluant la date du paiement et le montant payé.
+
+Explication des contraintes d'intégrité :
+  1. Salle de Musculation : Chaque salle de musculation doit avoir un numéro d'identification unique, un nom, et une adresse qui ne se répète pas. Elle ne peut pas être ouverte dans le futur, doit avoir un espace d'entraînement mesurable, et des heures d'ouverture et de fermeture qui font sens (ouverture avant fermeture).
+  2. Membre : Chaque membre doit avoir un numéro d'identification unique, être associé à un abonnement existant, fournir un nom et un prénom, être né à une date qui est passée, avoir une adresse, et s'être inscrit à une date qui ne peut être dans le futur. Si un membre résilie son abonnement, la date doit correspondre à la fin de l'abonnement.
+  3. Abonnement : Chaque abonnement doit avoir un numéro d'identification unique, un type, un prix qui n'est pas négatif, et des dates de début et de fin qui sont associées respectivement à l'inscription et à la résiliation d'un membre.
+  4. Équipement : Chaque équipement doit avoir un numéro d'identification unique, un nom, une catégorie d'utilisation, une date d'achat qui est passée, et un prix qui n'est pas négatif.
+  5. Cours : Chaque cours doit avoir un numéro d'identification unique, être lié à une salle, avoir un nom et un type, être prévu pour une date future, et avoir des heures de début et de fin cohérentes.
+  6. Entraîneur : Chaque entraîneur doit avoir un numéro d'identification unique, un nom, un prénom, une spécialité, et avoir été embauché à une date passée.
+  7. Moyen de Paiement : Chaque moyen de paiement doit avoir un numéro d'identification unique, un type, des détails qui sont appropriés au type de paiement et traités avec précaution, être associé à un membre, et avoir été ajouté à une date qui est passée.
+
+4. Questions à poser sur le modèle
+  - En moyenne, quelle est la durée de l'abonnement d'un membre ?
+  - En moyenne quelle âge à un membre ?
+  - Quand a ouvert la première/dernière salle de musculation ?
+  - Quelles sont les salles qui ouvrent/ferment le plus tôt/tard ?
+  - Quelle est le coût total moyen de tous les équipements d'une salle ?
+  - Quelle est la plus grande salle de musculation ?
+  - Quelles sont les équipements les plus présents dans les salles de musculations ?
+  - Quels sont les membres qui ont un abonnement en cours ?
+  - Quels sont les membres qui ont un résilié leur abonnement ?
+  - Quels sont les membres d'une salle de musculation donnée ?
+  - Quels cours sont les plus populaires parmi les membres ?
+  - Combien de cours un entraîneur donné enseigne-t-il ?
+  - Combien d'équipements une salle de musculation donnée possède-t-elle ?
+  - Quels membres sont inscrits à un cours donné ?
+  - Quelles sont les salles de musculation disponibles ?
+  - Quel est le prix de chaque type d'abonnement ?
+  - Quelles salles de musculation possèdent tel équipement donné ?
+  - Quel est le montant moyen des transactions par moyen de paiement ?
+  - Quel pourcentage des membres préfère chaque moyen de paiement ?
+  - Quel est le moyen de paiement le plus populaire parmi les membres ?
+  - ...
