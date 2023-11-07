@@ -1,4 +1,4 @@
-1. Introduction
+1 Introduction
 
   Pour ce projet en base de données, nous avons conçu un cahier des charges détaillé visant à élaborer une base de données pour la gestion des salles de musculation. Cette initiative s'inscrit dans un contexte où la musculation et le fitness ont pris une place prépondérante dans notre société contemporaine, non seulement comme activités de loisir mais également comme éléments essentiels à une vie saine et équilibrée. Les bienfaits du sport, et plus spécifiquement de la musculation, sont multiples et reconnus. Ils contribuent de manière significative à l'amélioration de la condition physique, au renforcement musculaire, à la perte de poids, au maintien de l'équilibre psychologique et au renforcement de la confiance en soi.
 
@@ -8,11 +8,15 @@
 
   À travers ce projet, nous avons l'opportunité d'appliquer nos connaissances théoriques dans un cadre pratique, en construisant un système de gestion de base de données qui non seulement répond aux exigences fonctionnelles d'une salle de musculation mais qui favorise également une meilleure compréhension des besoins et des comportements de ses utilisateurs. Notre objectif est de créer une base de données robuste, flexible et évolutive, capable de s'adapter aux évolutions futures du secteur du fitness, tout en offrant une expérience utilisateur optimisée pour les gestionnaires et les membres des salles de musculation.
 
-2. Modèle Entitée-Association
+2 Modèle Entitée-Association
+
+2.1 Schéma
 
 Un modèle relationnel est un schéma indispensable à la compréhension d'un projet. En effet, il définit une structure et les différentes relations entre les tables, il permet de modéliser les données, de structurer les informations et d'assurer l'intégrité de celles-ci.
 
-Schéma :
+Inclure le schéma.
+
+2.2 Entités et attributs
 
 Dans la modélisation de notre problème, nous avons conceptualisé sept entités, afin de pouvoir les construire dans la deuxième partie du projet.
 
@@ -24,6 +28,8 @@ Entités et leurs attributs :
   5. Chaque cours a un identifiant unique, est associé à une salle, a un nom, un type, une date, une heure de début et de fin.
   6. Chaque entraîneur a un identifiant unique, un nom, un prénom, une spécialité, et une date d'embauche.
   7. Chaque moyen de paiement a un identifiant unique, un type, des détails qui varient en fonction du type, est lié à un membre, et a une date d'ajout.
+
+2.3 Relations
 
 Dans notre modèle de base de données des salles de musculation, nous pouvons identifié plusieurs relations entre les entités. Ces relations sont essentielles dans la gestion des données de la salle étant donné que celles-ci servent à modéliser la manière dont les entités sont liées les unes aux autres.
 
@@ -37,6 +43,8 @@ Relations :
   7. Un membre peut utiliser plusieurs moyens de paiement, mais un moyen de paiement est associé à un seul membre.
   8. Un moyen de paiement peut être utilisé pour plusieurs abonnements, mais un abonnement est payé par un seul moyen de paiement.
 
+2.4 Contraintes d'intégrité
+
 Les contraintes d'intégrité sont essentielles afin de garantir la fiabilité des données dans une base de données. 
 Dans le cas de la salle de musculation, elles visent à garantir que les données relatives aux membres, aux équipements, aux horaires et aux autres aspects de la salle soient cohérentes.
 Ainsi, la gestion de ces données est cruciale pour assurer le bon fonctionnement de la salle.
@@ -48,10 +56,11 @@ Contraintes d'intégrité :
   4. L'achat d'équipement doit être fait dans le passé et le prix doit être positif ou nul.
   5. Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
   6. Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
-  7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.
-  
+  7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.  
 
 3. Modèle relationnel
+
+3.1 Entités attributs
 
 Entités et leurs attributs :
   1. Salle de Musculation : Chaque salle de musculation possède un numéro d'identification unique, un nom, une adresse spécifique, une date à laquelle elle a commencé à opérer, une mesure de l'espace disponible pour l'entraînement, et les heures à lesquelles elle ouvre et ferme chaque jour.
@@ -62,6 +71,8 @@ Entités et leurs attributs :
   6. Entraîneur : Chaque entraîneur a un numéro d'identification unique, un nom, un prénom, une spécialité dans un domaine particulier de l'entraînement, et une date à laquelle il ou elle a commencé à travailler dans la salle.
   7. Moyen de Paiement : Les moyens de paiement sont identifiés par un numéro unique et sont caractérisés par un type (comme carte de crédit ou PayPal), des détails spécifiques qui varient en fonction du type de paiement, sont associés à un membre, et ont une date d'ajout indiquant quand ils ont été mis en place pour le membre.
 
+3.2 Relations
+
 Relations :
   1. EstMembreDe : Cette relation indique quel membre est inscrit dans quelle salle de musculation.
   2. Possède : Cela montre quel membre détient quel abonnement.
@@ -70,6 +81,8 @@ Relations :
   5. Participe : Cette relation révèle quels membres participent à quels cours.
   6. Utilise : Elle montre quels moyens de paiement sont utilisés par quels membres.
   7. PaiementPour : Cela indique quel moyen de paiement a été utilisé pour payer quel abonnement, incluant la date du paiement et le montant payé.
+
+3.3 Contraintes d'intégrité
 
 Explication des contraintes d'intégrité :
   1. Salle de Musculation : Chaque salle de musculation doit avoir un numéro d'identification unique, un nom, et une adresse qui ne se répète pas. Elle ne peut pas être ouverte dans le futur, doit avoir un espace d'entraînement mesurable, et des heures d'ouverture et de fermeture qui font sens (ouverture avant fermeture).
@@ -80,7 +93,19 @@ Explication des contraintes d'intégrité :
   6. Entraîneur : Chaque entraîneur doit avoir un numéro d'identification unique, un nom, un prénom, une spécialité, et avoir été embauché à une date passée.
   7. Moyen de Paiement : Chaque moyen de paiement doit avoir un numéro d'identification unique, un type, des détails qui sont appropriés au type de paiement et traités avec précaution, être associé à un membre, et avoir été ajouté à une date qui est passée.
 
-4. Questions à poser sur le modèle
+4. Rôles
+
+Texte d'introduction
+
+  - Administrateur : Ce rôle aurait un accès complet à toutes les données et fonctionnalités de la base de données. Il pourrait ajouter, modifier, supprimer et lire toutes les données, ainsi que gérer les utilisateurs et les rôles.
+  - GestionnaireDeSalle : Ce rôle pourrait gérer les informations relatives à une salle de musculation spécifique, y compris l'ajout, la modification et la suppression d'équipements et de cours, ainsi que les paiements effectués.
+  - Entraineur : Ce rôle pourrait ajouter, modifier et supprimer des cours qu'il donne.
+  - Membre : Ce rôle aurait un accès en lecture seule à certaines informations pertinentes pour un membre de la salle de musculation, comme les détails des cours auxquels il participe, ou la possibilité de consulter ses moyens de paiements et de transactions, et les mettre à jour au besoin.
+
+5. Questions à poser sur le modèle
+
+Texte d'introduction
+
   - En moyenne, quelle est la durée de l'abonnement d'un membre ?
   - En moyenne quelle âge à un membre ?
   - Quand a ouvert la première/dernière salle de musculation ?
