@@ -21,27 +21,27 @@ Inclure le schéma.
 Dans la modélisation de notre problème, nous avons conceptualisé sept entités, afin de pouvoir les construire dans la deuxième partie du projet.
 
 Entités et leurs attributs :
-  1. Chaque salle de musculation a un identifiant unique, un nom, une adresse, une date d'ouverture, une superficie totale, ainsi que des horaires d'ouverture et de fermeture.
-  2. Chaque membre est identifié par un numéro unique, est lié à un abonnement, et a un nom, un prénom, une date de naissance, une adresse, une date d'inscription et éventuellement une date de résiliation.
-  3. Chaque abonnement a un identifiant unique, un type, un prix, une date de début et potentiellement une date de fin.
-  4. Chaque équipement est identifié par un numéro unique, a un nom, un type, une date d'achat et un prix.
-  5. Chaque cours a un identifiant unique, est associé à une salle, a un nom, un type, une date, une heure de début et de fin.
-  6. Chaque entraîneur a un identifiant unique, un nom, un prénom, une spécialité, et une date d'embauche.
-  7. Chaque moyen de paiement a un identifiant unique, un type, des détails qui varient en fonction du type, est lié à un membre, et a une date d'ajout.
+  - Chaque salle de musculation a un identifiant unique, un nom, une adresse, une date d'ouverture, une superficie totale, ainsi que des horaires d'ouverture et de fermeture.
+  - Chaque membre est identifié par un numéro unique, est lié à un abonnement, et a un nom, un prénom, une date de naissance, une adresse, une date d'inscription et éventuellement une date de résiliation.
+  - Chaque abonnement a un identifiant unique, un type, un prix, une date de début et potentiellement une date de fin.
+  - Chaque équipement est identifié par un numéro unique, a un nom, un type, une date d'achat et un prix.
+  - Chaque cours a un identifiant unique, est associé à une salle, a un nom, un type, une date, une heure de début et de fin.
+  - Chaque entraîneur a un identifiant unique, un nom, un prénom, une spécialité, et une date d'embauche.
+  - Chaque moyen de paiement a un identifiant unique, un type, des détails qui varient en fonction du type, est lié à un membre, et a une date d'ajout.
 
 2.3 Relations
 
 Dans notre modèle de base de données des salles de musculation, nous pouvons identifié plusieurs relations entre les entités. Ces relations sont essentielles dans la gestion des données de la salle étant donné que celles-ci servent à modéliser la manière dont les entités sont liées les unes aux autres.
 
 Relations :
-  1. Les membres peuvent s'inscrire dans plusieurs salles de musculation, et chaque salle peut avoir de nombreux membres.
-  2. Un membre est lié à un seul abonnement, mais un abonnement peut concerner plusieurs membres.
-  3. Les salles de musculation sont équipées de plusieurs équipements et un équipement peut se trouver dans plusieurs salles.
-  4. Un entraîneur peut donner plusieurs cours, mais un cours est enseigné par un seul entraîneur.
-  5. Les membres peuvent participer à plusieurs cours, et chaque cours peut accueillir de nombreux membres.
-  6. Un cours se déroule dans une seule salle de musculation, bien que cette salle puisse accueillir plusieurs cours.
-  7. Un membre peut utiliser plusieurs moyens de paiement, mais un moyen de paiement est associé à un seul membre.
-  8. Un moyen de paiement peut être utilisé pour plusieurs abonnements, mais un abonnement est payé par un seul moyen de paiement.
+  - Les membres peuvent s'inscrire dans plusieurs salles de musculation, et chaque salle peut avoir de nombreux membres.
+  - Un membre est lié à un seul abonnement, mais un abonnement peut concerner plusieurs membres.
+  - Les salles de musculation sont équipées de plusieurs équipements et un équipement peut se trouver dans plusieurs salles.
+  - Un entraîneur peut donner plusieurs cours, mais un cours est enseigné par un seul entraîneur.
+  - Les membres peuvent participer à plusieurs cours, et chaque cours peut accueillir de nombreux membres.
+  - Un cours se déroule dans une seule salle de musculation, bien que cette salle puisse accueillir plusieurs cours.
+  - Un membre peut utiliser plusieurs moyens de paiement, mais un moyen de paiement est associé à un seul membre.
+  - Un moyen de paiement peut être utilisé pour plusieurs abonnements, mais un abonnement est payé par un seul moyen de paiement.
 
 2.4 Contraintes d'intégrité
 
@@ -50,52 +50,60 @@ Dans le cas de la salle de musculation, elles visent à garantir que les donnée
 Ainsi, la gestion de ces données est cruciale pour assurer le bon fonctionnement de la salle.
 
 Contraintes d'intégrité :
-  1. Les salles de musculation doivent avoir une adresse unique et ne peuvent pas être ouvertes dans le futur. Leur superficie doit être positive et les horaires d'ouverture doivent précéder ceux de fermeture.
-  2. Les membres doivent être inscrits à partir d'aujourd'hui ou dans le passé, et leur date de naissance doit également être dans le passé. L'inscription à un abonnement doit correspondre à la date de début de cet abonnement, et la résiliation à la date de fin.
-  3. Les abonnements doivent avoir un prix positif ou nul et les dates de début et de fin doivent correspondre respectivement à l'inscription et la résiliation du membre associé.
-  4. L'achat d'équipement doit être fait dans le passé et le prix doit être positif ou nul.
-  5. Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
-  6. Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
-  7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.  
+  - Les salles de musculation doivent avoir une adresse unique et ne peuvent pas être ouvertes dans le futur. Leur superficie doit être positive et les horaires d'ouverture doivent précéder ceux de fermeture.
+  - Les membres doivent être inscrits à partir d'aujourd'hui ou dans le passé, et leur date de naissance doit également être dans le passé. L'inscription à un abonnement doit correspondre à la date de début de cet abonnement, et la résiliation à la date de fin.
+  - Les abonnements doivent avoir un prix positif ou nul et les dates de début et de fin doivent correspondre respectivement à l'inscription et la résiliation du membre associé.
+  - L'achat d'équipement doit être fait dans le passé et le prix doit être positif ou nul.
+  - Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
+  - Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
+  - Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.  
 
 3. Modèle relationnel
 
+Le modèle relationnel est au cœur de la conception de notre système de base de données. Il articule comment les données sont structurées et comment les différentes entités interagissent entre elles. Cette section détaillera le modèle relationnel de notre base de données pour la gestion des salles de musculation, en mettant l'accent sur les entités, les attributs et les relations qui permettront de stocker et de récupérer des informations de manière efficace et cohérente.
+
 3.1 Entités attributs
 
+Les fondations d'une base de données robuste sont posées à travers la définition précise des entités et de leurs attributs. Cette sous-section met en lumière la structure de chaque entité en détail, en énumérant leurs caractéristiques distinctives et la nature des données qu'elles conserveront. Chaque entité est pensée pour refléter un aspect spécifique et nécessaire de l'écosystème de notre salle de musculation.
+
 Entités et leurs attributs :
-  1. Salle de Musculation : Chaque salle de musculation possède un numéro d'identification unique, un nom, une adresse spécifique, une date à laquelle elle a commencé à opérer, une mesure de l'espace disponible pour l'entraînement, et les heures à lesquelles elle ouvre et ferme chaque jour.
-  2. Membre : Chaque personne qui s'inscrit à la salle de musculation reçoit un numéro d'identification unique, est rattachée à un abonnement spécifique, et doit fournir son nom, son prénom, sa date de naissance, son adresse personnelle, la date à laquelle elle s'est inscrite, et éventuellement la date à laquelle elle a mis fin à son abonnement.
-  3. Abonnement : Les abonnements sont caractérisés par un numéro d'identification unique, un type qui décrit la durée de l'abonnement (comme mensuel ou annuel), un prix, une date de début de validité, et une date de fin éventuelle.
-  4. Équipement : Chaque pièce d'équipement dans la salle de musculation a un numéro d'identification unique, un nom, une catégorie décrivant son usage (comme cardio ou musculation), une date d'acquisition, et un prix.
-  5. Cours : Les cours offerts par la salle de musculation sont identifiés par un numéro unique, sont liés à une salle spécifique, et ont un nom, un type décrivant l'activité (comme le yoga ou le spinning), une date prévue, et des heures de début et de fin.
-  6. Entraîneur : Chaque entraîneur a un numéro d'identification unique, un nom, un prénom, une spécialité dans un domaine particulier de l'entraînement, et une date à laquelle il ou elle a commencé à travailler dans la salle.
-  7. Moyen de Paiement : Les moyens de paiement sont identifiés par un numéro unique et sont caractérisés par un type (comme carte de crédit ou PayPal), des détails spécifiques qui varient en fonction du type de paiement, sont associés à un membre, et ont une date d'ajout indiquant quand ils ont été mis en place pour le membre.
+  - Salle de Musculation : Chaque salle de musculation possède un numéro d'identification unique, un nom, une adresse spécifique, une date à laquelle elle a commencé à opérer, une mesure de l'espace disponible pour l'entraînement, et les heures à lesquelles elle ouvre et ferme chaque jour.
+  - Membre : Chaque personne qui s'inscrit à la salle de musculation reçoit un numéro d'identification unique, est rattachée à un abonnement spécifique, et doit fournir son nom, son prénom, sa date de naissance, son adresse personnelle, la date à laquelle elle s'est inscrite, et éventuellement la date à laquelle elle a mis fin à son abonnement.
+  - Abonnement : Les abonnements sont caractérisés par un numéro d'identification unique, un type qui décrit la durée de l'abonnement (comme mensuel ou annuel), un prix, une date de début de validité, et une date de fin éventuelle.
+  - Équipement : Chaque pièce d'équipement dans la salle de musculation a un numéro d'identification unique, un nom, une catégorie décrivant son usage (comme cardio ou musculation), une date d'acquisition, et un prix.
+  - Cours : Les cours offerts par la salle de musculation sont identifiés par un numéro unique, sont liés à une salle spécifique, et ont un nom, un type décrivant l'activité (comme le yoga ou le spinning), une date prévue, et des heures de début et de fin.
+  - Entraîneur : Chaque entraîneur a un numéro d'identification unique, un nom, un prénom, une spécialité dans un domaine particulier de l'entraînement, et une date à laquelle il ou elle a commencé à travailler dans la salle.
+  - Moyen de Paiement : Les moyens de paiement sont identifiés par un numéro unique et sont caractérisés par un type (comme carte de crédit ou PayPal), des détails spécifiques qui varient en fonction du type de paiement, sont associés à un membre, et ont une date d'ajout indiquant quand ils ont été mis en place pour le membre.
 
 3.2 Relations
 
+Les relations entre les entités sont le fil conducteur qui permet de naviguer dans le labyrinthe des données et d'en extraire du sens. Ici, nous allons définir les différents types de liens qui existent entre nos entités, en expliquant comment elles interagissent les unes avec les autres. Ces relations sont essentielles pour modéliser la complexité des opérations dans les salles de musculation et pour permettre des requêtes multifacettes sur la base de données.
+
 Relations :
-  1. EstMembreDe : Cette relation indique quel membre est inscrit dans quelle salle de musculation.
-  2. Possède : Cela montre quel membre détient quel abonnement.
-  3. EstÉquipéDe : Cette relation répertorie quels équipements sont présents dans quelle salle de musculation.
-  4. Donne : Elle indique quel entraîneur donne quels cours.
-  5. Participe : Cette relation révèle quels membres participent à quels cours.
-  6. Utilise : Elle montre quels moyens de paiement sont utilisés par quels membres.
-  7. PaiementPour : Cela indique quel moyen de paiement a été utilisé pour payer quel abonnement, incluant la date du paiement et le montant payé.
+  - EstMembreDe : Cette relation indique quel membre est inscrit dans quelle salle de musculation.
+  - Possède : Cela montre quel membre détient quel abonnement.
+  - EstÉquipéDe : Cette relation répertorie quels équipements sont présents dans quelle salle de musculation.
+  - Donne : Elle indique quel entraîneur donne quels cours.
+  - Participe : Cette relation révèle quels membres participent à quels cours.
+  - Utilise : Elle montre quels moyens de paiement sont utilisés par quels membres.
+  - PaiementPour : Cela indique quel moyen de paiement a été utilisé pour payer quel abonnement, incluant la date du paiement et le montant payé.
 
 3.3 Contraintes d'intégrité
 
+Une base de données sans contraintes d'intégrité serait chaotique et peu fiable. Les contraintes assurent la validité et la fiabilité des données en définissant les règles que les données doivent respecter pour être considérées comme valides. Cette sous-section va donc détailler les contraintes d'intégrité de notre modèle, garantissant que les données restent précises, cohérentes et conformes à nos attentes et besoins opérationnels.
+
 Explication des contraintes d'intégrité :
-  1. Salle de Musculation : Chaque salle de musculation doit avoir un numéro d'identification unique, un nom, et une adresse qui ne se répète pas. Elle ne peut pas être ouverte dans le futur, doit avoir un espace d'entraînement mesurable, et des heures d'ouverture et de fermeture qui font sens (ouverture avant fermeture).
-  2. Membre : Chaque membre doit avoir un numéro d'identification unique, être associé à un abonnement existant, fournir un nom et un prénom, être né à une date qui est passée, avoir une adresse, et s'être inscrit à une date qui ne peut être dans le futur. Si un membre résilie son abonnement, la date doit correspondre à la fin de l'abonnement.
-  3. Abonnement : Chaque abonnement doit avoir un numéro d'identification unique, un type, un prix qui n'est pas négatif, et des dates de début et de fin qui sont associées respectivement à l'inscription et à la résiliation d'un membre.
-  4. Équipement : Chaque équipement doit avoir un numéro d'identification unique, un nom, une catégorie d'utilisation, une date d'achat qui est passée, et un prix qui n'est pas négatif.
-  5. Cours : Chaque cours doit avoir un numéro d'identification unique, être lié à une salle, avoir un nom et un type, être prévu pour une date future, et avoir des heures de début et de fin cohérentes.
-  6. Entraîneur : Chaque entraîneur doit avoir un numéro d'identification unique, un nom, un prénom, une spécialité, et avoir été embauché à une date passée.
-  7. Moyen de Paiement : Chaque moyen de paiement doit avoir un numéro d'identification unique, un type, des détails qui sont appropriés au type de paiement et traités avec précaution, être associé à un membre, et avoir été ajouté à une date qui est passée.
+  - Salle de Musculation : Chaque salle de musculation doit avoir un numéro d'identification unique, un nom, et une adresse qui ne se répète pas. Elle ne peut pas être ouverte dans le futur, doit avoir un espace d'entraînement mesurable, et des heures d'ouverture et de fermeture qui font sens (ouverture avant fermeture).
+  - Membre : Chaque membre doit avoir un numéro d'identification unique, être associé à un abonnement existant, fournir un nom et un prénom, être né à une date qui est passée, avoir une adresse, et s'être inscrit à une date qui ne peut être dans le futur. Si un membre résilie son abonnement, la date doit correspondre à la fin de l'abonnement.
+  - Abonnement : Chaque abonnement doit avoir un numéro d'identification unique, un type, un prix qui n'est pas négatif, et des dates de début et de fin qui sont associées respectivement à l'inscription et à la résiliation d'un membre.
+  - Équipement : Chaque équipement doit avoir un numéro d'identification unique, un nom, une catégorie d'utilisation, une date d'achat qui est passée, et un prix qui n'est pas négatif.
+  - Cours : Chaque cours doit avoir un numéro d'identification unique, être lié à une salle, avoir un nom et un type, être prévu pour une date future, et avoir des heures de début et de fin cohérentes.
+  - Entraîneur : Chaque entraîneur doit avoir un numéro d'identification unique, un nom, un prénom, une spécialité, et avoir été embauché à une date passée.
+  - Moyen de Paiement : Chaque moyen de paiement doit avoir un numéro d'identification unique, un type, des détails qui sont appropriés au type de paiement et traités avec précaution, être associé à un membre, et avoir été ajouté à une date qui est passée.
 
 4. Rôles
 
-Texte d'introduction
+Dans la conception de notre base de données, il est primordial de définir clairement les différents rôles et leurs permissions respectives. Ces rôles sont essentiels pour assurer la sécurité des données et pour que chaque utilisateur interagisse avec le système de manière appropriée, en fonction de ses responsabilités. Nous avons identifié quatre rôles principaux, chacun avec des niveaux d'accès et de contrôle spécifiques, garantissant ainsi une gestion efficace et ordonnée des opérations quotidiennes de la salle de musculation.
 
   - Administrateur : Ce rôle aurait un accès complet à toutes les données et fonctionnalités de la base de données. Il pourrait ajouter, modifier, supprimer et lire toutes les données, ainsi que gérer les utilisateurs et les rôles.
   - GestionnaireDeSalle : Ce rôle pourrait gérer les informations relatives à une salle de musculation spécifique, y compris l'ajout, la modification et la suppression d'équipements et de cours, ainsi que les paiements effectués.
@@ -104,7 +112,8 @@ Texte d'introduction
 
 5. Questions à poser sur le modèle
 
-Texte d'introduction
+La conception d'un modèle de base de données exige une réflexion approfondie sur les questions auxquelles le système devra répondre. Ces questions guident la structuration des données et les relations entre elles. Elles servent également à vérifier la pertinence du modèle et sa capacité à fournir des informations utiles pour la prise de décision. Voici une série de questions potentielles que notre modèle de base de données devrait être en mesure d'aborder pour illustrer la diversité et la profondeur des insights que nous souhaitons extraire de notre système.
+
 
   - En moyenne, quelle est la durée de l'abonnement d'un membre ?
   - En moyenne quelle âge à un membre ?
