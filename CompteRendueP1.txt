@@ -1,4 +1,20 @@
+1. Introduction
+
+  Pour ce projet en base de données, nous avons conçu un cahier des charges détaillé visant à élaborer une base de données pour la gestion des salles de musculation. Cette initiative s'inscrit dans un contexte où la musculation et le fitness ont pris une place prépondérante dans notre société contemporaine, non seulement comme activités de loisir mais également comme éléments essentiels à une vie saine et équilibrée. Les bienfaits du sport, et plus spécifiquement de la musculation, sont multiples et reconnus. Ils contribuent de manière significative à l'amélioration de la condition physique, au renforcement musculaire, à la perte de poids, au maintien de l'équilibre psychologique et au renforcement de la confiance en soi.
+
+  Avec la démocratisation de l'accès au sport, les salles de musculation sont devenues des espaces inclusifs, accueillant une diversité de profils, des athlètes chevronnés aux débutants, en passant par ceux qui cherchent à reprendre une activité physique régulière après une période d'inactivité. Elles offrent une gamme variée d'abonnements, rendant le fitness plus accessible à tous les niveaux de revenus. Les équipements modernes et les différentes gammes de cours proposés sont conçus pour répondre à un large éventail de besoins et de préférences, permettant à chaque individu de trouver une activité adaptée à ses objectifs personnels.
+
+  En tant que membres actifs de salles de musculation, nous sommes témoins de l'évolution constante de ces espaces, qui s'adaptent sans cesse aux dernières tendances et innovations en matière de fitness. Notre intérêt personnel pour le sujet nous a poussé à le choisir comme support pour ce projet d'IN513, où nous chercherons à comprendre et à modéliser les complexités inhérentes à la gestion d'une salle de sport. Notre projet aspire à simuler un environnement réaliste de gestion, reflétant les défis quotidiens tels que le suivi des membres, la gestion des abonnements, l'organisation des cours et l'entretien des équipements.
+
+  À travers ce projet, nous avons l'opportunité d'appliquer nos connaissances théoriques dans un cadre pratique, en construisant un système de gestion de base de données qui non seulement répond aux exigences fonctionnelles d'une salle de musculation mais qui favorise également une meilleure compréhension des besoins et des comportements de ses utilisateurs. Notre objectif est de créer une base de données robuste, flexible et évolutive, capable de s'adapter aux évolutions futures du secteur du fitness, tout en offrant une expérience utilisateur optimisée pour les gestionnaires et les membres des salles de musculation.
+
 2. Modèle Entitée-Association
+
+Un modèle relationnel est un schéma indispensable à la compréhension d'un projet. En effet, il définit une structure et les différentes relations entre les tables, il permet de modéliser les données, de structurer les informations et d'assurer l'intégrité de celles-ci.
+
+Schéma :
+
+Dans la modélisation de notre problème, nous avons conceptualisé sept entités, afin de pouvoir les construire dans la deuxième partie du projet.
 
 Entités et leurs attributs :
   1. Chaque salle de musculation a un identifiant unique, un nom, une adresse, une date d'ouverture, une superficie totale, ainsi que des horaires d'ouverture et de fermeture.
@@ -8,6 +24,8 @@ Entités et leurs attributs :
   5. Chaque cours a un identifiant unique, est associé à une salle, a un nom, un type, une date, une heure de début et de fin.
   6. Chaque entraîneur a un identifiant unique, un nom, un prénom, une spécialité, et une date d'embauche.
   7. Chaque moyen de paiement a un identifiant unique, un type, des détails qui varient en fonction du type, est lié à un membre, et a une date d'ajout.
+
+Dans notre modèle de base de données des salles de musculation, nous pouvons identifié plusieurs relations entre les entités. Ces relations sont essentielles dans la gestion des données de la salle étant donné que celles-ci servent à modéliser la manière dont les entités sont liées les unes aux autres.
 
 Relations :
   1. Les membres peuvent s'inscrire dans plusieurs salles de musculation, et chaque salle peut avoir de nombreux membres.
@@ -19,6 +37,10 @@ Relations :
   7. Un membre peut utiliser plusieurs moyens de paiement, mais un moyen de paiement est associé à un seul membre.
   8. Un moyen de paiement peut être utilisé pour plusieurs abonnements, mais un abonnement est payé par un seul moyen de paiement.
 
+Les contraintes d'intégrité sont essentielles afin de garantir la fiabilité des données dans une base de données. 
+Dans le cas de la salle de musculation, elles visent à garantir que les données relatives aux membres, aux équipements, aux horaires et aux autres aspects de la salle soient cohérentes.
+Ainsi, la gestion de ces données est cruciale pour assurer le bon fonctionnement de la salle.
+
 Contraintes d'intégrité :
   1. Les salles de musculation doivent avoir une adresse unique et ne peuvent pas être ouvertes dans le futur. Leur superficie doit être positive et les horaires d'ouverture doivent précéder ceux de fermeture.
   2. Les membres doivent être inscrits à partir d'aujourd'hui ou dans le passé, et leur date de naissance doit également être dans le passé. L'inscription à un abonnement doit correspondre à la date de début de cet abonnement, et la résiliation à la date de fin.
@@ -27,8 +49,6 @@ Contraintes d'intégrité :
   5. Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
   6. Les entraîneurs doivent être embauchés dans le passé et avoir une spécialité déclarée.
   7. Les moyens de paiement doivent être ajoutés à partir d'aujourd'hui ou dans le passé et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.
-
-Schéma :
   
 
 3. Modèle relationnel
