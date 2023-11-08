@@ -114,25 +114,13 @@ Dans la conception de notre base de données, il est primordial de définir clai
 
 La conception d'un modèle de base de données exige une réflexion approfondie sur les questions auxquelles le système devra répondre. Ces questions guident la structuration des données et les relations entre elles. Elles servent également à vérifier la pertinence du modèle et sa capacité à fournir des informations utiles pour la prise de décision. Voici une série de questions potentielles que notre modèle de base de données devrait être en mesure d'aborder pour illustrer la diversité et la profondeur des insights que nous souhaitons extraire de notre système.
 
-
-  - En moyenne, quelle est la durée de l'abonnement d'un membre ?
-  - En moyenne quelle âge à un membre ?
-  - Quand a ouvert la première/dernière salle de musculation ?
-  - Quelles sont les salles qui ouvrent/ferment le plus tôt/tard ?
-  - Quelle est le coût total moyen de tous les équipements d'une salle ?
-  - Quelle est la plus grande salle de musculation ?
-  - Quelles sont les équipements les plus présents dans les salles de musculations ?
-  - Quels sont les membres qui ont un abonnement en cours ?
-  - Quels sont les membres qui ont un résilié leur abonnement ?
-  - Quels sont les membres d'une salle de musculation donnée ?
-  - Quels cours sont les plus populaires parmi les membres ?
-  - Combien de cours un entraîneur donné enseigne-t-il ?
-  - Combien d'équipements une salle de musculation donnée possède-t-elle ?
-  - Quels membres sont inscrits à un cours donné ?
-  - Quelles sont les salles de musculation disponibles ?
-  - Quel est le prix de chaque type d'abonnement ?
-  - Quelles salles de musculation possèdent tel équipement donné ?
-  - Quel est le montant moyen des transactions par moyen de paiement ?
-  - Quel pourcentage des membres préfère chaque moyen de paiement ?
-  - Quel est le moyen de paiement le plus populaire parmi les membres ?
-  - ...
+  - Quel est le pourcentage d'utilisation des équipements de cardio par rapport aux équipements de musculation dans l'ensemble de nos salles ?
+  - Quelle salle de musculation a le taux de renouvellement d'abonnement le plus élevé et quelles pourraient en être les raisons (basées sur les types de cours, les équipements disponibles, etc.) ?
+  - Quel est le profil démographique (âge, sexe) des membres qui fréquentent le plus les cours de haute intensité comme le CrossFit ou le HIIT ?
+  - Comment les habitudes de paiement ont-elles évolué au cours des dernières années (carte de crédit, prélèvement automatique, PayPal, etc.) et quelles stratégies pourrions-nous adopter pour optimiser les processus de paiement ?
+  - Quels sont les entraîneurs qui ont le plus grand nombre de membres inscrits à leurs cours et comment cela se compare-t-il à leur ancienneté et à leurs spécialités ?
+  - Pouvez-vous identifier les périodes de l'année où les inscriptions aux salles de musculation sont les plus élevées et les corréler avec les campagnes marketing ou les périodes de promotions spéciales ?
+  - Quelle corrélation existe-t-il entre la superficie d'une salle de musculation et le nombre d'équipements qu'elle contient ? Cette densité a-t-elle un impact sur la fréquentation des membres ?
+  - Est-il possible de prévoir la durée de vie d'un équipement en fonction de son prix et de sa fréquence d'utilisation, afin de mieux planifier les achats futurs ?
+  - Quelle est la durée moyenne entre l'inscription d'un membre et sa première participation à un cours, et quels facteurs pourraient accélérer cette intégration ?
+  - Peut-on déterminer un modèle de comportement des membres résiliant leur abonnement (fréquence des visites, types de cours suivis, durée depuis l'inscription, etc.) pour développer des stratégies de rétention ?
