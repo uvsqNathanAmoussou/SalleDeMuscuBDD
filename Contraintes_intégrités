@@ -1,0 +1,20 @@
+- Les salles de musculation doivent avoir une adresse unique et  (doivent déjà être ouverte) ne peuvent pas être ouvertes dans le futur. Leur superficie doit être positive et les horaires d'ouverture doivent précéder ceux de fermeture.
+- Les membres doivent être déjà inscrits, et leur date de naissance doit également précédée la date d'inscription. L'inscription à un abonnement doit correspondre à la date de début de cet abonnement, et la résiliation à la date de fin.
+- Les abonnements doivent avoir un prix positif ou nul et les dates de début et de fin doivent correspondre respectivement à l'inscription et la résiliation du membre associé.
+- L'achat d'équipement doit être déjà fait et le prix doit être positif ou nul.
+- Les cours doivent être planifiés pour le futur et les horaires doivent être cohérents, avec un début avant la fin.
+- Les entraîneurs doivent être préalablement embauchés et avoir une spécialité déclarée.
+- Les moyens de paiement doivent être déjà ajoutés et doivent être liés à un membre spécifique. Les détails du moyen de paiement doivent être traités avec précaution en raison de leur nature potentiellement sensible.
+-	Dans la table SalleMusculation, le numéro de ID_Salle doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Membre, le numéro de ID_Membre doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Abonnement, le numéro de ID_Abonnement doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Equipement, le numéro de ID_Equipement doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Cours, le numéro de ID_Cours doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Entraineur, le numéro de ID_Entraineur doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Dans la table Entrainement, le numéro de ID_Paiement doit être égal à celui de la commande précédente + 1 et la première commande porte le numéro 1
+-	Pour tous les abonnements dont la date de début (DateDebut) de l’abonnement est comprise pendant la période du 20 décembre au 10 janvier, les frais d’adhésion/inscription sont offerts (il faut ajouter l’élément frais d’adhésion)
+-	Pour tous les abonnements, le premier mois est offert
+-	Empêcher la suppression d’un membre dont l’abonnement est toujours en cours
+-	Un abonnement doit être lié à un membre existant
+-	L’âge d’un membre doit être supérieur à 18
+-	Un membre doit avoir un abonnement actif avant de pouvoir réserver un cours
