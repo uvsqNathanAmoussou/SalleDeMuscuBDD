@@ -847,6 +847,8 @@ INSERT ALL
 SELECT * FROM dual;
 ```
 
+Pour ce qui est de la méthode avec `SQL*Load`, nous avons rencontré des problèmes avec la machine virtuelle que nous avons pas réussi à corriger. Cependant, nous avons créé un script Python pour générer des données et nous le mentionnons à titre indicatif à la fin de ce compte rendu.
+
 ### C. Manipulation des données
 
 1. Quel est le nombre total de membres ?
@@ -1363,4 +1365,321 @@ FROM
     all_triggers
 WHERE
     owner = 'GestionnaireDeSalle';
+```
+### Autre
+
+Ci-après, notre cahier des charges de la partie 1. À noter que notre implémentation diffère légèrement de ce que nous avions fait dans la partie 1 (notamment les triggers), différences liées aux contraintes d'implémentation que nous n'avions pas prévues.
+Également, comme mentionné à la fin de la partie B., nous joignons le code qui avait pour but de générer les données de test en quantitée massive pour la méthode avec `SQL*LOAD`.
+
+```python
+from faker import Faker
+from io import StringIO
+from datetime import timedelta, datetime
+import random
+import csv
+
+# Initialize Faker to generate data in French
+fake = Faker('fr_FR')
+# Define the equipment list as provided
+equipments_list = [
+    ("Seated leg press", "machine", (200, 700)),
+    ("Decline leg press", "machine", (200, 700)),
+    ("Leg extension", "machine", (200, 700)),
+    ("Seated leg curl", "machine", (200, 700)),
+    ("Lying leg curl", "machine", (200, 700)),
+    ("Shoulder press", "machine", (200, 700)),
+    ("Converging chest press", "machine", (200, 700)),
+    ("Pec deck", "machine", (200, 700)),
+    ("Chest press", "machine", (200, 700)),
+    ("Lat pulldown", "machine", (200, 700)),
+    ("Seated row", "machine", (200, 700)),
+    ("Converging seated row", "machine", (200, 700)),
+    ("Preacher curl", "machine", (200, 700)),
+    ("Seated dips", "machine", (200, 700)),
+    ("Long barbell", "poids libre", (300, 800)),
+    ("Mid barbell", "poids libre", (300, 800)),
+    ("Dumbbell (lot)", "poids libre", (300, 800)),
+    ("Weight disk (lot)", "poids libre", (300, 800)),
+    ("Adjustable bench", "banc et cadres", (200, 700)),
+    ("Smith machine", "banc et cadres", (200, 700))
+]
+# Define the list of course types as provided
+types_de_cours_list = [
+    "Yoga",
+    "Pilates",
+    "CrossFit",
+    "Abdos Fessier",
+    "Spinning",
+    "Kickboxing",
+    "Danse Fitness",
+    "Jumping Jack",
+    "Bodybuilding",
+    "HIIT"  # High-Intensity Interval Training
+]
+# Function to generate formatted data for SalleMusculation
+def generate_salle_musculation_formatted(n):
+    # Create a string buffer to hold the CSV data
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    opening_hours = [f"{hour:02d}:{minute:02d}:00" for hour in range(4, 10) for minute in range(0, 60, 15)]
+    closing_hours = [f"{hour:02d}:{minute:02d}:00" for hour in range(19, 24) for minute in range(0, 60, 15)]
+
+    for i in range(n):
+        id_salle = fake.unique.random_int(min=1, max=10000)
+        nom = fake.company()
+        adresse = fake.address().replace('\n', ', ')
+        date_ouverture = fake.date_between(start_date='-10y', end_date='today').strftime('%Y-%m-%d')
+        surface_totale = random.randint(400, 1000)  # Surface between 400 and 1000 m^2
+        horaire_ouverture = random.choice(opening_hours)
+        horaire_fermeture = random.choice(closing_hours)
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_salle, nom, adresse, date_ouverture, surface_totale, horaire_ouverture, horaire_fermeture])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate formatted entries for 'SalleMusculation'
+formatted_data_salle = generate_salle_musculation_formatted(30)
+# Function to generate data for Membre
+def generate_membres_formatted(n):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    for i in range(n):
+        id_membre = fake.unique.random_int(min=1, max=10000)
+        id_abonnement = fake.random_int(min=1, max=100)
+        nom = fake.last_name()
+        prenom = fake.first_name()
+        date_naissance = fake.date_of_birth(minimum_age=18, maximum_age=70).strftime('%Y-%m-%d')
+        adresse = fake.address().replace('\n', ', ')
+        date_inscription = fake.date_between(start_date='-10y', end_date='today').strftime('%Y-%m-%d')
+        # Randomly decide whether to assign a date of resiliation
+        assign_resiliation = random.choice([True, False])
+        date_resiliation = fake.date_between(start_date='-1m', end_date='today').strftime('%Y-%m-%d') if assign_resiliation else None
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_membre, id_abonnement, nom, prenom, date_naissance, adresse, date_inscription, date_resiliation or "None"])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate formatted entries for 'Membres'
+formatted_data_membres = generate_membres_formatted(2100)
+# Function to generate data for MoyenPaiement
+# Adjusted function to generate formatted data for MoyenPaiement
+def generate_moyen_paiement_formatted(n):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    for i in range(n):
+        id_paiement = fake.unique.random_int(min=1, max=10000)
+        type_moyen_paiement = random.choice(['Carte Bancaire', 'Virement', 'Paypal', 'Chèque'])
+        # Generate credit card details only for 'Carte Bancaire', otherwise set to None
+        details = fake.credit_card_full() if type_moyen_paiement == 'Carte Bancaire' else None
+        details_formatted = details.replace("\n", ", ") if details is not None else "None"
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_paiement, type_moyen_paiement, details_formatted])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate 10 formatted entries for 'MoyenPaiement'
+formatted_data_moyen_paiement = generate_moyen_paiement_formatted(2100)
+# Adjusted function to generate formatted data for Abonnements
+def generate_abonnements_formatted(n):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    types_prix = {
+        'À la semaine': 10,  # 10€/semaine
+        'Mensuel': 30,  # 30€/mois
+        'Annuel': 240  # 240€/an
+    }
+
+    for i in range(n):
+        id_abonnement = fake.unique.random_int(min=1, max=10000)
+        type_abonnement, prix = random.choice(list(types_prix.items()))
+        date_debut = fake.date_between(start_date='-2y', end_date='today').strftime('%Y-%m-%d')
+        # Adjusting the end date calculation to avoid the out-of-range error
+        if type_abonnement == 'À la semaine':
+            date_fin = (datetime.strptime(date_debut, '%Y-%m-%d') + timedelta(weeks=1)).strftime('%Y-%m-%d')
+        elif type_abonnement == 'Mensuel':
+            date_fin = (datetime.strptime(date_debut, '%Y-%m-%d') + timedelta(weeks=4)).strftime('%Y-%m-%d')
+        else:  # Annuel
+            date_fin = (datetime.strptime(date_debut, '%Y-%m-%d') + timedelta(weeks=52)).strftime('%Y-%m-%d')
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_abonnement, type_abonnement, prix, date_debut, date_fin])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate 10 formatted entries for 'Abonnements'
+formatted_data_abonnements = generate_abonnements_formatted(2100)
+# Updated list of equipment names and types with their respective price ranges
+# Adjusted function to generate formatted data for Equipement with specific price ranges
+def generate_equipements_formatted(n, equipment_list):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    for i in range(n):
+        # Randomly select an equipment from the list
+        name, type_equipement, price_range = random.choice(equipment_list)
+        id_equipement = fake.unique.random_int(min=1, max=10000)
+        date_achat = fake.date_between(start_date='-10y', end_date='today').strftime('%Y-%m-%d')
+        # Generate a random price within the specified range, rounded to two decimal places
+        prix = round(random.uniform(*price_range), 2)
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_equipement, name, type_equipement, date_achat, prix])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate 10 formatted entries for 'Equipements'
+formatted_data_equipements = generate_equipements_formatted(360, equipments_list)
+# Adjusted function to generate formatted data for TypeDeCours
+def generate_types_de_cours_formatted(n, course_list):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    for i in range(n):
+        id_type_de_cours = fake.unique.random_int(min=1, max=1000)
+        type_type_de_cours = course_list[i % len(course_list)]  # Use modulo for cycling through the list if n > len(course_list)
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_type_de_cours, type_type_de_cours])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate formatted entries for 'TypeDeCours'
+formatted_data_types_de_cours = generate_types_de_cours_formatted(len(types_de_cours_list), types_de_cours_list)
+# Function to generate data for Entraineur
+# Define the specialties list as provided
+specialites = types_de_cours_list
+
+# Adjusted function to generate formatted data for Entraineurs
+def generate_entraineurs_formatted(n, specialites):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+
+    for i in range(n):
+        id_entraineur = fake.unique.random_int(min=1, max=10000)
+        nom = fake.last_name()
+        prenom = fake.first_name()
+        specialite = random.choice(specialites)
+        date_embauche = fake.date_between(start_date='-10y', end_date='today').strftime('%Y-%m-%d')
+
+        # Write a row of data in the specified format
+        writer.writerow([i+1, id_entraineur, nom, prenom, specialite, date_embauche])
+
+    # Get the string from the string buffer
+    output.seek(0)
+    return output.read()
+
+# Generate 10 formatted entries for 'Entraineurs'
+formatted_data_entraineurs = generate_entraineurs_formatted(90, specialites)
+def convert_to_dict_ignoring_first(input_str):
+    # Split the input string into lines
+    lines = input_str.strip().split('\n')
+    
+    # Define the list to hold dictionaries
+    dict_list = []
+    
+    # Define the keys for the dictionaries
+    keys = ['ID_Entraineur', 'Nom', 'Prénom', 'Spécialité', 'DateEmbauche']
+    
+    # Iterate over each line
+    for line in lines:
+        # Split the line by comma, strip the quotes, and ignore the first element
+        elements = [e.strip('"') for e in line.split(',')[1:]]
+        
+        # Create a dictionary for the line and append to the list
+        dict_list.append(dict(zip(keys, elements)))
+    
+    return dict_list
+
+# Test the function with the provided string
+entraineurs_data = convert_to_dict_ignoring_first(formatted_data_entraineurs)
+def convert_to_course_dict_corrected(input_str):
+    # Split the input string into lines
+    lines = input_str.strip().split('\n')
+    
+    # Define the list to hold dictionaries
+    dict_list = []
+    
+    # Define the keys for the dictionaries
+    keys = ['ID_TypeDeCours', 'Type_TypeDeCours']
+    
+    # Iterate over each line
+    for line in lines:
+        # Split the line by comma and strip the quotes
+        elements = [e.strip('"') for e in line.split(',')]
+        
+        # Swap the elements to match the correct key-value pair
+        elements = [elements[1], elements[2].strip('"\r')]
+        
+        # Create a dictionary for the line and append to the list
+        dict_list.append(dict(zip(keys, elements)))
+    
+    return dict_list
+
+# Test the corrected function with the provided string
+type_de_cours_data = convert_to_course_dict_corrected(formatted_data_types_de_cours)
+# Function to generate data for Cours
+def generate_cours_formatted(n, entraineurs, types_de_cours):
+    output = StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_NONNUMERIC)
+    # Generate data
+    for i in range(n):
+        id_cours = fake.unique.random_int(min=1, max=10000)
+        entraineur = random.choice(entraineurs)
+        type_de_cours = random.choice(types_de_cours)
+        nom = f"{type_de_cours['Type_TypeDeCours']} with {entraineur['Prénom']} {entraineur['Nom']}"
+        description = f"{type_de_cours['Type_TypeDeCours']} class provided by {entraineur['Prénom']} {entraineur['Nom']} specializing in {entraineur['Spécialité']}."
+        # Write the data to CSV writer
+        writer.writerow([i+1, id_cours, type_de_cours['ID_TypeDeCours'], entraineur['ID_Entraineur'], nom, description])
+    # Return the generated CSV data
+    output.seek(0)
+    return output.read()
+
+# Generate the formatted data for 10 Cours entries
+formatted_data_cours = generate_cours_formatted(300, entraineurs_data, type_de_cours_data)
+def write_to_file(input_list, filename):
+    # Ouvrir le fichier en mode 'write', cela va créer le fichier s'il n'existe pas, ou le réécrire s'il existe déjà
+    with open(filename, 'w') as f:
+        # Écrire chaque élément de la liste dans le fichier comme une ligne distincte
+        for line in input_list:
+            f.write(line + '\n')
+
+input_string = [formatted_data_salle,
+                formatted_data_membres,
+                formatted_data_moyen_paiement,
+                formatted_data_abonnements,
+                formatted_data_equipements,
+                type_de_cours_data,
+                entraineurs_data,
+                formatted_data_cours]
+
+output_filename = ['SalleMusculation.txt',
+                     'Membres.txt',
+                     'MoyenPaiement.txt',
+                     'Abonnements.txt',
+                     'Equipements.txt',
+                     'TypeDeCours.txt',
+                     'Entraineurs.txt',
+                     'Cours.txt']
+
+for i in range(len(input_string)):
+    write_to_file(input_string[i], output_filename[i])
 ```
