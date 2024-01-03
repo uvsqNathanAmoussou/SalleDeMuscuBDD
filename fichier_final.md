@@ -822,9 +822,15 @@ INSERT ALL
     INTO Participe (ID_Membre, ID_Cours, Date_Participe)
     VALUES (1, 1, TO_DATE('2023-01-15', 'YYYY-MM-DD'))
     INTO Participe (ID_Membre, ID_Cours, Date_Participe)
+    VALUES (1, 2, TO_DATE('2023-02-01', 'YYYY-MM-DD'))
+    INTO Participe (ID_Membre, ID_Cours, Date_Participe)
+    VALUES (2, 1, TO_DATE('2023-02-15', 'YYYY-MM-DD'))
+    INTO Participe (ID_Membre, ID_Cours, Date_Participe)
     VALUES (2, 2, TO_DATE('2023-02-01', 'YYYY-MM-DD'))
     INTO Participe (ID_Membre, ID_Cours, Date_Participe)
     VALUES (3, 3, TO_DATE('2023-03-10', 'YYYY-MM-DD'))
+    INTO Participe (ID_Membre, ID_Cours, Date_Participe)
+    VALUES (3, 6, TO_DATE('2023-03-25', 'YYYY-MM-DD'))
     INTO Participe (ID_Membre, ID_Cours, Date_Participe)
     VALUES (4, 4, TO_DATE('2023-04-05', 'YYYY-MM-DD'))
     INTO Participe (ID_Membre, ID_Cours, Date_Participe)
@@ -951,33 +957,33 @@ pb → retourne pas le bon nombre
     AND M.ID_Membre IN (SELECT ID_Membre FROM Muscu);
     ```
     
-11. Quels membres ont assisté à la fois à des cours de yoga et de Pilates le même mois ?
+11. Quels membres ont assisté à la fois à des cours de CrossFit et de Kickboxing le même mois ?
     
     ```sql
-    -- Membres dans des cours de yoga
-    WITH Yoga AS (
+    -- Membres dans des cours de crossfit
+    WITH Crossfit AS (
         SELECT P.ID_Membre, EXTRACT(MONTH FROM P.Date_Participe) AS Mois
         FROM Participe P
         JOIN Cours C ON P.ID_Cours = C.ID_Cours
         JOIN TypeDeCours T ON C.ID_TypeDeCours = T.ID_TypeDeCours
-        WHERE T.Type_TypeDeCours = 'Yoga'
+        WHERE T.Type_TypeDeCours = 'CrossFit'
     ),
-    -- Membres dans des cours de Pilates
-    Pilates AS (
+    -- Membres dans des cours de kickboxing
+    Kickboxing AS (
         SELECT P.ID_Membre, EXTRACT(MONTH FROM P.Date_Participe) AS Mois
         FROM Participe P
         JOIN Cours C ON P.ID_Cours = C.ID_Cours
         JOIN TypeDeCours T ON C.ID_TypeDeCours = T.ID_TypeDeCours
-        WHERE T.Type_TypeDeCours = 'Pilates'
+        WHERE T.Type_TypeDeCours = 'Kickboxing'
     )
     -- Intersection
     SELECT M.ID_Membre, M.Nom, M.Prenom
     FROM Membre M
     WHERE EXISTS (
         SELECT 1
-        FROM Yoga Y
-        JOIN Pilates P ON Y.ID_Membre = P.ID_Membre AND Y.Mois = P.Mois
-        WHERE M.ID_Membre = Y.ID_Membre
+        FROM Crossfit C
+        JOIN Kickboxing K ON C.ID_Membre = K.ID_Membre AND C.Mois = K.Mois
+        WHERE M.ID_Membre = C.ID_Membre
     );
     ```
     
