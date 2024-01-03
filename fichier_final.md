@@ -793,7 +793,6 @@ INSERT ALL
     VALUES (5, 20, 3)
 SELECT * FROM dual;
 
--- ces données activent les triggers
 INSERT ALL
     INTO SeTientDansPropose (ID_Salle, ID_Cours, HoraireDebut, HoraireFin, Jour)
     VALUES (1, 1, TO_TIMESTAMP('2023-01-15 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_TIMESTAMP('2023-01-15 11:30:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2023-01-15', 'YYYY-MM-DD'))
@@ -1192,7 +1191,35 @@ SELECT * FROM dual;
         END IF;
     END;
     ```
+
+- Trigger `CheckMemberAge` (avant d’insérer un nouveau membre, s’assure que le membre est âgé d'au moins 18 ans au moment de son inscription) :
     
+    ```sql
+    CREATE OR REPLACE TRIGGER CheckMemberAge
+    BEFORE INSERT ON Membre
+    FOR EACH ROW
+    BEGIN
+        IF MONTHS_BETWEEN(SYSDATE, :NEW.DateNaissance)/12 < 18 THEN
+            RAISE_APPLICATION_ERROR(-20001, 'Le membre doit être âgé de 18 ans ou plus.');
+        END IF;
+    END;
+    ```
+    
+- Trigger `CheckResiliationDate` (avant de mettre à jour un membre, vérifie si la date de résiliation spécifiée est postérieure à la date d'inscription du membre) :
+    
+    ```sql
+    CREATE OR REPLACE TRIGGER CheckResiliationDate
+    BEFORE UPDATE OF DateResiliation ON Membre
+    FOR EACH ROW
+    BEGIN
+        IF :NEW.DateResiliation IS NOT NULL AND :NEW.DateResiliation <= :OLD.DateInscription THEN
+            RAISE_APPLICATION_ERROR(-20002, 'La date de résiliation doit être postérieure à la date d''inscription.');
+        END IF;
+    END;
+    ```
+
+Les trois triggers suivants posent problème avec nos tables et nos données de test, probablement car nous n'avons pas utilisé le type TIMESTAMP correctement pour les horaires, ainsi ils ne fonctionnent pas et nous n'avons pas le temps de les corriger. Nous les mentionnons à titre indicatif.
+
 - Trigger `CheckCoursHoraireDebut` (après avoir inséré ou mis à jour un cours dans la table `SeTientDansPropose`, ce trigger vérifie si l'horaire de début du cours est postérieur à l'horaire d'ouverture de la salle de musculation associée) :
     
     ```sql
