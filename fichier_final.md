@@ -1,5 +1,7 @@
 # Compte Rendu Projet PL/SQL
 
+Projet réalisé par AMOUSSOU Nathan, LAM Mathieu, JEYAKANTHAN Thushanth.
+
 ### A. Création du schéma de la base de données
 
 ```sql
