@@ -148,65 +148,65 @@ SELECT * FROM dual;
 
 INSERT ALL
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (1, 'À la semaine', 10.00, TO_DATE('2023-01-15', 'YYYY-MM-DD'), TO_DATE('2023-01-22', 'YYYY-MM-DD'))
+    VALUES (1, 'À la semaine', 40.00, TO_DATE('2023-01-15', 'YYYY-MM-DD'), TO_DATE('2023-01-22', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (2, 'Mensuel', 30.00, TO_DATE('2023-02-01', 'YYYY-MM-DD'), TO_DATE('2023-02-28', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (3, 'Annuel', 240.00, TO_DATE('2023-03-10', 'YYYY-MM-DD'), TO_DATE('2024-03-09', 'YYYY-MM-DD'))
+    VALUES (3, 'Annuel', 20.00, TO_DATE('2023-03-10', 'YYYY-MM-DD'), TO_DATE('2024-03-09', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (4, 'À la semaine', 10.00, TO_DATE('2023-04-05', 'YYYY-MM-DD'), TO_DATE('2023-04-12', 'YYYY-MM-DD'))
+    VALUES (4, 'À la semaine', 40.00, TO_DATE('2023-04-05', 'YYYY-MM-DD'), TO_DATE('2023-04-12', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (5, 'Mensuel', 30.00, TO_DATE('2023-05-20', 'YYYY-MM-DD'), TO_DATE('2023-06-19', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (6, 'Annuel', 240.00, TO_DATE('2023-06-01', 'YYYY-MM-DD'), TO_DATE('2024-05-31', 'YYYY-MM-DD'))
+    VALUES (6, 'Annuel', 20.00, TO_DATE('2023-06-01', 'YYYY-MM-DD'), TO_DATE('2024-05-31', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (7, 'À la semaine', 10.00, TO_DATE('2023-07-08', 'YYYY-MM-DD'), TO_DATE('2023-07-15', 'YYYY-MM-DD'))
+    VALUES (7, 'À la semaine', 40.00, TO_DATE('2023-07-08', 'YYYY-MM-DD'), TO_DATE('2023-07-15', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (8, 'Mensuel', 30.00, TO_DATE('2023-08-12', 'YYYY-MM-DD'), TO_DATE('2023-09-11', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (9, 'Annuel', 240.00, TO_DATE('2023-09-25', 'YYYY-MM-DD'), TO_DATE('2024-09-24', 'YYYY-MM-DD'))
+    VALUES (9, 'Annuel', 20.00, TO_DATE('2023-09-25', 'YYYY-MM-DD'), TO_DATE('2024-09-24', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (10, 'À la semaine', 10.00, TO_DATE('2023-10-15', 'YYYY-MM-DD'), TO_DATE('2023-10-22', 'YYYY-MM-DD'))
+    VALUES (10, 'À la semaine', 40.00, TO_DATE('2023-10-15', 'YYYY-MM-DD'), TO_DATE('2023-10-22', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (11, 'Mensuel', 30.00, TO_DATE('2023-11-05', 'YYYY-MM-DD'), TO_DATE('2023-12-04', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (12, 'Annuel', 240.00, TO_DATE('2023-12-18', 'YYYY-MM-DD'), TO_DATE('2024-12-17', 'YYYY-MM-DD'))
+    VALUES (12, 'Annuel', 20.00, TO_DATE('2023-12-18', 'YYYY-MM-DD'), TO_DATE('2024-12-17', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (13, 'À la semaine', 10.00, TO_DATE('2024-01-10', 'YYYY-MM-DD'), TO_DATE('2024-01-17', 'YYYY-MM-DD'))
+    VALUES (13, 'À la semaine', 40.00, TO_DATE('2024-01-10', 'YYYY-MM-DD'), TO_DATE('2024-01-17', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (14, 'Mensuel', 30.00, TO_DATE('2024-02-15', 'YYYY-MM-DD'), TO_DATE('2024-03-14', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (15, 'Annuel', 240.00, TO_DATE('2024-03-28', 'YYYY-MM-DD'), TO_DATE('2025-03-27', 'YYYY-MM-DD'))
+    VALUES (15, 'Annuel', 20.00, TO_DATE('2024-03-28', 'YYYY-MM-DD'), TO_DATE('2025-03-27', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (16, 'À la semaine', 10.00, TO_DATE('2024-04-05', 'YYYY-MM-DD'), TO_DATE('2024-04-12', 'YYYY-MM-DD'))
+    VALUES (16, 'À la semaine', 40.00, TO_DATE('2024-04-05', 'YYYY-MM-DD'), TO_DATE('2024-04-12', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (17, 'Mensuel', 30.00, TO_DATE('2024-05-10', 'YYYY-MM-DD'), TO_DATE('2024-06-09', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (18, 'Annuel', 240.00, TO_DATE('2024-06-20', 'YYYY-MM-DD'), TO_DATE('2025-06-19', 'YYYY-MM-DD'))
+    VALUES (18, 'Annuel', 20.00, TO_DATE('2024-06-20', 'YYYY-MM-DD'), TO_DATE('2025-06-19', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (19, 'À la semaine', 10.00, TO_DATE('2024-07-05', 'YYYY-MM-DD'), TO_DATE('2024-07-12', 'YYYY-MM-DD'))
+    VALUES (19, 'À la semaine', 40.00, TO_DATE('2024-07-05', 'YYYY-MM-DD'), TO_DATE('2024-07-12', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (20, 'Mensuel', 30.00, TO_DATE('2024-08-10', 'YYYY-MM-DD'), TO_DATE('2024-09-09', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (21, 'À la semaine', 10.00, TO_DATE('2024-01-15', 'YYYY-MM-DD'), TO_DATE('2024-01-22', 'YYYY-MM-DD'))
+    VALUES (21, 'À la semaine', 40.00, TO_DATE('2024-01-15', 'YYYY-MM-DD'), TO_DATE('2024-01-22', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (22, 'Mensuel', 30.00, TO_DATE('2024-02-01', 'YYYY-MM-DD'), TO_DATE('2024-02-29', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (23, 'Annuel', 240.00, TO_DATE('2024-03-10', 'YYYY-MM-DD'), TO_DATE('2025-03-09', 'YYYY-MM-DD'))
+    VALUES (23, 'Annuel', 20.00, TO_DATE('2024-03-10', 'YYYY-MM-DD'), TO_DATE('2025-03-09', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (24, 'À la semaine', 10.00, TO_DATE('2024-04-05', 'YYYY-MM-DD'), TO_DATE('2024-04-12', 'YYYY-MM-DD'))
+    VALUES (24, 'À la semaine', 40.00, TO_DATE('2024-04-05', 'YYYY-MM-DD'), TO_DATE('2024-04-12', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (25, 'Mensuel', 30.00, TO_DATE('2024-05-20', 'YYYY-MM-DD'), TO_DATE('2024-06-19', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (26, 'Annuel', 240.00, TO_DATE('2024-06-01', 'YYYY-MM-DD'), TO_DATE('2025-05-31', 'YYYY-MM-DD'))
+    VALUES (26, 'Annuel', 20.00, TO_DATE('2024-06-01', 'YYYY-MM-DD'), TO_DATE('2025-05-31', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (27, 'À la semaine', 10.00, TO_DATE('2024-07-08', 'YYYY-MM-DD'), TO_DATE('2024-07-15', 'YYYY-MM-DD'))
+    VALUES (27, 'À la semaine', 40.00, TO_DATE('2024-07-08', 'YYYY-MM-DD'), TO_DATE('2024-07-15', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
     VALUES (28, 'Mensuel', 30.00, TO_DATE('2024-08-12', 'YYYY-MM-DD'), TO_DATE('2024-09-11', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (29, 'Annuel', 240.00, TO_DATE('2024-09-25', 'YYYY-MM-DD'), TO_DATE('2025-09-24', 'YYYY-MM-DD'))
+    VALUES (29, 'Annuel', 20.00, TO_DATE('2024-09-25', 'YYYY-MM-DD'), TO_DATE('2025-09-24', 'YYYY-MM-DD'))
     INTO Abonnement (ID_Abonnement, Type_Abonnement, Prix, DateDebut, DateFin)
-    VALUES (30, 'À la semaine', 10.00, TO_DATE('2024-10-15', 'YYYY-MM-DD'), TO_DATE('2024-10-22', 'YYYY-MM-DD'))
+    VALUES (30, 'À la semaine', 40.00, TO_DATE('2024-10-15', 'YYYY-MM-DD'), TO_DATE('2024-10-22', 'YYYY-MM-DD'))
 SELECT * FROM dual;
 
 INSERT ALL
@@ -858,7 +858,6 @@ SELECT * FROM dual;
     ```
     
 2. Quel est le revenu moyen des abonnements ?
-pb → différencier abonnement annuel, mensuel, etc
     
     ```sql
     SELECT AVG(Prix) AS Revenu_Moyen_Abonnements
@@ -866,7 +865,6 @@ pb → différencier abonnement annuel, mensuel, etc
     ```
     
 3. Quel est le nombre d'équipements par salle ?
-pb → retourne pas le bon nombre
     
     ```sql
     SELECT ID_Salle, SUM(Quantite) AS Total_Equipements
