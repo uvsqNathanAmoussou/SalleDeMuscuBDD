@@ -1315,6 +1315,26 @@ FROM
 WHERE
     owner = 'GestionnaireDeSalle';
 
+SELECT
+    Membre,
+    CheckMemberAge,
+    BEFORE EACH ROW,
+    INSERT,
+FROM
+    all_triggers
+WHERE
+    owner = 'GestionnaireDeSalle';
+
+SELECT
+    Membre,
+    CheckResiliationDate,
+    BEFORE EACH ROW,
+    INSERT,
+FROM
+    all_triggers
+WHERE
+    owner = 'GestionnaireDeSalle';
+
 -- Liste des triggers pour la table Equipement
 SELECT
     Equipement,
